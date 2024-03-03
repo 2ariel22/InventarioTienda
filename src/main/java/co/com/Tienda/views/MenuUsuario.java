@@ -21,6 +21,7 @@ public class MenuUsuario extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel labelRegistro;
+	private JLabel labelDelete;
 
 	/**
 	 * Launch the application.
@@ -58,6 +59,11 @@ public class MenuUsuario extends JFrame {
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
+		JLabel imagenFondo = new JLabel("");
+		imagenFondo.setBounds(0, 200, 944, 409);
+		imagenFondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/imagenes/HorizontalUsurio.jpg")));
+		contentPane.add(imagenFondo);
+		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(50, 20, 150, 150);
 		panelMenu.add(lblNewLabel_2);
@@ -82,7 +88,7 @@ public class MenuUsuario extends JFrame {
 				dispose();
 			}
 		});
-		btnRegistro.setBounds(255, 72, 257, 56);
+		btnRegistro.setBounds(255, 72, 220, 56);
 		btnRegistro.setBackground(new Color(12, 138, 152));
 		panelMenu.add(btnRegistro);
 		btnRegistro.setLayout(null);
@@ -90,10 +96,43 @@ public class MenuUsuario extends JFrame {
 		labelRegistro = new JLabel("Registro de Productos");
 		labelRegistro.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/AddProducto.png")));
 		labelRegistro.setForeground(SystemColor.text);
-		labelRegistro.setBounds(25, 11, 235, 34);
+		labelRegistro.setBounds(0, 0, 235, 34);
 		labelRegistro.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelRegistro.setHorizontalAlignment(SwingConstants.LEFT);
 		btnRegistro.add(labelRegistro);
+		
+		final JPanel btnDelete = new JPanel();
+		btnDelete.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnDelete.setBackground(new Color(118, 187, 223));				
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnDelete.setBackground(new Color(12, 138, 152));	
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//ReservasView reservas = new ReservasView();
+				//reservas.setVisible(true);
+				dispose();
+			}
+		});
+		
+		btnDelete.setBounds(500, 72, 220, 56);
+	
+		btnDelete.setBackground(new Color(12, 138, 152));
+		panelMenu.add(btnDelete);
+		btnDelete.setLayout(null);
+		
+		
+		labelDelete = new JLabel("Eliminar Producto");
+		labelDelete.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/Delete.png")));
+		labelDelete.setForeground(SystemColor.text);
+		labelDelete.setBounds(0, 0, 235, 34);
+		labelDelete.setFont(new Font("Roboto", Font.PLAIN, 18));
+		labelDelete.setHorizontalAlignment(SwingConstants.LEFT);
+		btnDelete.add(labelDelete);
 		
 		
 	}
